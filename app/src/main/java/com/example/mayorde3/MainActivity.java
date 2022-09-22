@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
     EditText txfN1,txfN2, txfN3;
     TextView tv1;
@@ -28,22 +28,26 @@ public class MainActivity extends AppCompatActivity
         btnMyr = findViewById(R.id.btnMayor);
     }
 
-    public void Mayor(View view)
+
+
+    @Override
+    public void onClick(View view)
     {
-      String n1 = txfN1.getText().toString();
-      String n2 = txfN2.getText().toString();
-      String n3 = txfN3.getText().toString();
+        String n1 = txfN1.getText().toString();
+        String n2 = txfN2.getText().toString();
+        String n3 = txfN3.getText().toString();
 
-      int k1 = Integer.parseInt(n1);
-      int k2 = Integer.parseInt(n2);
-      int k3 = Integer.parseInt(n3);
+        int k1 = Integer.parseInt(n1);
+        int k2 = Integer.parseInt(n2);
+        int k3 = Integer.parseInt(n3);
 
-      if(k1 > k2)
-      {
-          if(k1 > k3)
-          {
-
-          }
-      }
+        if(k1 > k2 && k1 > k3)
+        {
+            tv1.setText(String.valueOf(n1));
+        }else if (k2 > k1 && k2 > k3)
+        {
+            tv1.setText(String.valueOf(n2));
+        }else
+            tv1.setText(String.valueOf(n3));
     }
 }
